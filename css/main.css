@@ -1,11 +1,35 @@
 body {
   background: #ccf5f5; }
 
+#main {
+  width: 600px;
+  margin: 40px auto; }
+
+#page-footer {
+  text-align: center;
+  margin-top: 40px; }
+  #page-footer a {
+    display: inline-block;
+    color: #599c9c;
+    text-decoration: none;
+    border-width: 1px;
+    border-style: dotted;
+    border-color: transparent;
+    padding: 5px; }
+    #page-footer a:hover, #page-footer a:focus {
+      color: #9c599c;
+      border-color: #9c599c; }
+
 #yeti-hideout {
   width: 600px;
   height: 600px;
-  overflow: hidden;
-  margin: 40px auto; }
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  #yeti-hideout:after {
+    content: "";
+    display: table;
+    clear: both; }
 
 .mound {
   display: block;
