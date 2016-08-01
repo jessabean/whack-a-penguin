@@ -37,6 +37,8 @@ body {
   width: 200px;
   height: 200px;
   background: transparent url(../img/mound.png) 0 0 no-repeat; }
+  .mound.disabled {
+    pointer-events: none; }
 
 .mound:hover {
   background-image: url(../img/mound_hover.png);

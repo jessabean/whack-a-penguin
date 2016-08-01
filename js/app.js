@@ -48,8 +48,21 @@ Game.prototype.render = function() {
 }
 
 hideout.addEventListener('click', function(e){
-  var mound = e.target;
-  mound.classList.add('found');
+  var thisMound = e.target,
+      el        = document.getElementsByTagName('li');
+
+  thisMound.classList.add('found');
+  
+  if(thisMound.classList.contains('yeti')) {
+    for (var i = 0; i < el.length; i++) {
+      el[i].classList.remove('found');
+      el[i].classList.add('disabled');
+    }
+    thisMound.classList.add('found');
+
+    console.log("ahhhhhhh");
+  }
+
 })
 
 module.exports = Game;
