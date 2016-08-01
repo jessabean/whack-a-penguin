@@ -1,0 +1,33 @@
+body {
+  background: #ccf5f5;
+}
+
+#yeti-hideout {
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+.mound {
+  display: block;
+  float: left;
+  width: 200px;
+  height: 200px;
+  background: transparent url(../img/mound.png) 0 0 no-repeat;
+}
+
+.mound:hover {
+  background-image: url(../img/mound_hover.png);
+  cursor: pointer;
+}
+
+@for $i from 0 through 7 {
+  [data-hiding="penguin#{$i}"].found {
+     background-image: url(../img/penguin#{$i}.png);
+  }
+}
+
+[data-hiding="yeti"].found {
+  background-image: url(../img/yeti.png);
+}

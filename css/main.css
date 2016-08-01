@@ -1,0 +1,46 @@
+body {
+  background: #ccf5f5; }
+
+#yeti-hideout {
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  margin: 40px auto; }
+
+.mound {
+  display: block;
+  float: left;
+  width: 200px;
+  height: 200px;
+  background: transparent url(../img/mound.png) 0 0 no-repeat; }
+
+.mound:hover {
+  background-image: url(../img/mound_hover.png);
+  cursor: pointer; }
+
+[data-hiding="penguin0"].found {
+  background-image: url(../img/penguin0.png); }
+
+[data-hiding="penguin1"].found {
+  background-image: url(../img/penguin1.png); }
+
+[data-hiding="penguin2"].found {
+  background-image: url(../img/penguin2.png); }
+
+[data-hiding="penguin3"].found {
+  background-image: url(../img/penguin3.png); }
+
+[data-hiding="penguin4"].found {
+  background-image: url(../img/penguin4.png); }
+
+[data-hiding="penguin5"].found {
+  background-image: url(../img/penguin5.png); }
+
+[data-hiding="penguin6"].found {
+  background-image: url(../img/penguin6.png); }
+
+[data-hiding="penguin7"].found {
+  background-image: url(../img/penguin7.png); }
+
+[data-hiding="yeti"].found {
+  background-image: url(../img/yeti.png); }
