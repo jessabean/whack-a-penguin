@@ -8,6 +8,7 @@ var Game = function() {
 
 Game.prototype.start = function() {
   this.hidePenguins(this.penguins);
+  this.hideYeti();
 }
 
 Game.prototype.hidePenguins = function(penguins) {
@@ -28,5 +29,9 @@ Game.prototype.hidePenguins = function(penguins) {
 
   return penguins;
 };
+
+Game.prototype.hideYeti = function() {
+  this.penguins.splice(this.yeti, 0, 'yeti');
+}
 
 module.exports = Game;
