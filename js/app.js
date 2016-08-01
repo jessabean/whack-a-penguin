@@ -9,6 +9,9 @@ var Game = function() {
 Game.prototype.start = function() {
   this.hidePenguins(this.penguins);
   this.hideYeti();
+  this.render();
+
+  console.log(this.penguins);
 }
 
 Game.prototype.hidePenguins = function(penguins) {
@@ -32,6 +35,16 @@ Game.prototype.hidePenguins = function(penguins) {
 
 Game.prototype.hideYeti = function() {
   this.penguins.splice(this.yeti, 0, 'yeti');
+}
+
+Game.prototype.render = function() {
+  for(var i=0; i<this.penguins.length; i++) {
+    item = document.createElement('li');
+    item.classList.add('mound');
+    item.classList.add('js-mound');
+    item.classList.add(this.penguins[i]);
+    hideout.appendChild(item);
+  }
 }
 
 module.exports = Game;
