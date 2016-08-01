@@ -47,4 +47,9 @@ Game.prototype.render = function() {
   }
 }
 
+hideout.addEventListener('click', function(e){
+  var mound = e.target;
+  mound.classList.add('found');
+})
+
 module.exports = Game;

@@ -57,11 +57,11 @@ body {
 }
 
 @for $i from 0 through 7 {
-  [data-hiding="penguin#{$i}"].found {
+  .penguin#{$i}.found {
      background-image: url(../img/penguin#{$i}.png);
   }
 }
 
-[data-hiding="yeti"].found {
+.yeti.found {
   background-image: url(../img/yeti.png);
 }
