@@ -47,22 +47,46 @@ Game.prototype.render = function() {
   }
 }
 
+Game.prototype.stop = function(yeti) {
+  var el = document.getElementsByTagName('li');
+  var header = document.getElementById('page-header');
+  var button = document.createElement('button');
+  var roar = document.createElement('h2');
+
+  for (var i = 0; i < el.length; i++) {
+    el[i].classList.remove('found');
+    el[i].classList.add('disabled');
+  }
+
+  yeti.classList.add('found');
+
+  button.setAttribute('type', 'button');
+  button.id = 'start-game';
+  button.classList.add('button');
+  roar.id = 'roar';
+  button.textContent = 'Start a new game';
+  roar.textContent = 'ROOOOOAAAARRRRRR!!!!';
+  header.appendChild(roar);
+  header.appendChild(button);
+
+  button.addEventListener('click', function(e){
+    hideout.innerHTML = '';
+    header.innerHTML = '';
+    document.body.classList.remove('yeti-found');
+    var game = new Game();
+    game.start();
+  });
+}
+
 hideout.addEventListener('click', function(e){
-  var thisMound = e.target,
-      el        = document.getElementsByTagName('li');
+  var thisMound = e.target;
 
   thisMound.classList.add('found');
   
   if(thisMound.classList.contains('yeti')) {
-    for (var i = 0; i < el.length; i++) {
-      el[i].classList.remove('found');
-      el[i].classList.add('disabled');
-    }
-    thisMound.classList.add('found');
-
-    console.log("ahhhhhhh");
+    document.body.classList.add('yeti-found');
+    game.stop(thisMound);
   }
-
-})
+});
 
 module.exports = Game;

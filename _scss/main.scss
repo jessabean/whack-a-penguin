@@ -1,10 +1,25 @@
+// =============================
+// Variables
+// =============================
+
+$ice: #CCF5F5;
+$teal: #599C9C;
+$fuschia: #9C599C;
+$red: #BC6C6C;
+
+$padding_base: 1rem;
+
+// =============================
+// Layout
+// =============================
+
 body {
-  background: #ccf5f5;
+  background: $ice;
 }
 
 #main {
-  width: 600px;
-  margin: 40px auto;  
+  width: 450px;
+  margin: 0 auto;  
 }
 
 #page-footer {
@@ -13,7 +28,7 @@ body {
 
   a {
     display: inline-block;
-    color: #599c9c;
+    color: $teal;
     text-decoration: none;
     border-width: 1px; 
     border-style: dotted;
@@ -22,16 +37,16 @@ body {
 
     &:hover,
     &:focus {
-      color: #9c599c;
-      border-color: #9c599c;
+      color: $fuschia;
+      border-color: $fuschia;
     }
   }
 }
 
 
 #yeti-hideout {
-  width: 600px;
-  height: 600px;
+  width: 450px;
+  height: 450px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -46,19 +61,30 @@ body {
 .mound {
   display: block;
   float: left;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background: transparent url(../img/mound.png) 0 0 no-repeat;
+  background-size: cover;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s;
 
-  &.disabled {
+  &:hover {
+    background-image: url(../img/mound_hover.png);
+    cursor: pointer;
+  }
+  
+  .yeti-found & {
+    opacity: 0;
     pointer-events: none;
+  }
+
+  .yeti-found &.yeti {
+    opacity: 1;
+    pointer-events: default;
   }
 }
 
-.mound:hover {
-  background-image: url(../img/mound_hover.png);
-  cursor: pointer;
-}
 
 @for $i from 0 through 7 {
   .penguin#{$i}.found {
@@ -68,4 +94,51 @@ body {
 
 .yeti.found {
   background-image: url(../img/yeti.png);
+}
+
+.yeti-found #page-header {
+  width: 100%;
+  padding: $padding_base 0;
+  text-align: center;
+}
+
+.yeti-found #roar {
+  animation: shaky .6s linear;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: $padding_base;
+  background: $red;
+  color: white;
+  border: none;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background: darken($red, 10%);
+  }
+}
+
+@keyframes shaky {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
